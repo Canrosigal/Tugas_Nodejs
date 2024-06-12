@@ -1,23 +1,22 @@
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  /**
-   * @param {import('sequelize').QueryInterface} queryInterface
-   * @param {import('sequelize').Sequelize} Sequelize
-   */
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("authors", {
+    await queryInterface.createTable("sub_babs", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
+      nama_sub_bab: {
         type: Sequelize.STRING,
       },
-      biography: {
-        type: Sequelize.TEXT,
+      is_free: {
+        type: Sequelize.BOOLEAN,
+      },
+      id_bab: {
+        type: Sequelize.INTEGER,
       },
       created_at: {
         allowNull: false,
@@ -31,11 +30,7 @@ module.exports = {
       },
     });
   },
-  /**
-   * @param {import('sequelize').QueryInterface} queryInterface
-   * @param {import('sequelize').Sequelize} _Sequelize
-   */
-  async down(queryInterface, _Sequelize) {
-    await queryInterface.dropTable("authors");
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("sub_babs");
   },
 };

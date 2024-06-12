@@ -1,30 +1,19 @@
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  /**
-   * @param {import('sequelize').QueryInterface} queryInterface
-   * @param {import('sequelize').Sequelize} Sequelize
-   */
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("books", {
+    await queryInterface.createTable("mata_pembelajarans", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      isbn: {
-        type: Sequelize.STRING,
-        unique: true,
-      },
-      title: {
+      nama_mata_pembelajaran: {
         type: Sequelize.STRING,
       },
-      publication_year: {
+      id_mode_pembelajaran: {
         type: Sequelize.INTEGER,
-      },
-      price: {
-        type: Sequelize.DECIMAL(10, 2),
       },
       created_at: {
         allowNull: false,
@@ -38,11 +27,7 @@ module.exports = {
       },
     });
   },
-  /**
-   * @param {import('sequelize').QueryInterface} queryInterface
-   * @param {import('sequelize').Sequelize} _Sequelize
-   */
-  async down(queryInterface, _Sequelize) {
-    await queryInterface.dropTable("books");
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("mata_pembelajarans");
   },
 };
