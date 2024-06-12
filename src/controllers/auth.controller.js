@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
  * @param {import("express").NextFunction} next
  */
 const register = async (req, res, next) => {
-  const { name, email, password, shipping_address } = req.body;
+  const { name, email, password } = req.body;
 
   const passwordHash = await bcrypt.hash(password, 10);
   console.log("passwordHash", passwordHash);
